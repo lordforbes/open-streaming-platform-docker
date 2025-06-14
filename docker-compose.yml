@@ -12,7 +12,7 @@ services:
     # image: deamos/osp-ejabberd
     restart: unless-stopped
 
-    mem_limit: 256m
+    deploy.resources: 256m
     memswap_limit: 256m
     mem_reservation: 256m
 
@@ -43,7 +43,6 @@ services:
     # image: deamos/osp-core
     restart: unless-stopped
 
-    mem_limit: 2048m
     memswap_limit: 2304m
     mem_reservation: 2048m
 
@@ -58,18 +57,18 @@ services:
     ports:
       - '80'
     environment:
-      - OSP_SERVER_ADDRESS=osp.example.com
+      - OSP_SERVER_ADDRESS=osp.deliteonline.com
       - OSP_REDIS_HOST=osp_redis
       - OSP_REDIS_PORT=6379
       - OSP_REDIS_PASSWORD=
-      - OSP_CORE_DB=mysql+pymysql://osp:REPLACEOSPDBPASSWORD@osp_db/osp
-      - OSP_CORE_SECRETKEY=REPLACEME_osp_flask_secret_REPLACEME
-      - OSP_CORE_PASSWORD_SALT=REPLACEME_osp_flask_salt_REPLACEME
+      - OSP_CORE_DB=mysql+pymysql://osp:D1g1tal00@osp_db/osp
+      - OSP_CORE_SECRETKEY=D1g1tal00
+      - OSP_CORE_PASSWORD_SALT=D1g1tal00
       - OSP_CORE_ALLOWREGISTRATION=True
       - OSP_CORE_REQUIREEMAILREGISTRATION=False
       - OSP_EJABBERD_PASSWORD=changeme
       - OSP_EJABBERD_RPCHOST=osp_ejabberd
-      - OSP_EJABBERD_BOSHDOMAIN=ejabberd.example.com
+      - OSP_EJABBERD_BOSHDOMAIN=ejabberd.deliteonline.com
       - OSP_SMTP_SENDAS=osp@email.com
       - OSP_SMTP_SERVERADDRESS=smtp.email.com
       - OSP_SMTP_SERVERPORT=25
@@ -102,18 +101,18 @@ services:
     mem_reservation: 2048m
 
     environment:
-      - OSP_SERVER_ADDRESS=osp.example.com
+      - OSP_SERVER_ADDRESS=osp.deliteonline.com
       - OSP_REDIS_HOST=osp_redis
       - OSP_REDIS_PORT=6379
       - OSP_REDIS_PASSWORD=
-      - OSP_CORE_DB=mysql+pymysql://osp:REPLACEOSPDBPASSWORD@osp_db/osp
-      - OSP_CORE_SECRETKEY=REPLACEME_osp_flask_secret_REPLACEME
-      - OSP_CORE_PASSWORD_SALT=REPLACEME_osp_flask_salt_REPLACEME
+      - OSP_CORE_DB=mysql+pymysql://osp:D1g1tal00@osp_db/osp
+      - OSP_CORE_SECRETKEY=D1g1tal00
+      - OSP_CORE_PASSWORD_SALT=D1g1tal00
       - OSP_CORE_ALLOWREGISTRATION=True
       - OSP_CORE_REQUIREEMAILREGISTRATION=False
       - OSP_EJABBERD_PASSWORD=changeme
       - OSP_EJABBERD_RPCHOST=osp_ejabberd
-      - OSP_EJABBERD_BOSHDOMAIN=ejabberd.example.com
+      - OSP_EJABBERD_BOSHDOMAIN=ejabberd.deliteonline.com
       - OSP_SMTP_SENDAS=osp@email.com
       - OSP_SMTP_SERVERADDRESS=smtp.email.com
       - OSP_SMTP_SERVERPORT=25
@@ -146,18 +145,18 @@ services:
     mem_reservation: 2048m
 
     environment:
-      - OSP_SERVER_ADDRESS=osp.example.com
+      - OSP_SERVER_ADDRESS=osp.deliteonline.com
       - OSP_REDIS_HOST=osp_redis
       - OSP_REDIS_PORT=6379
       - OSP_REDIS_PASSWORD=
-      - OSP_CORE_DB=mysql+pymysql://osp:REPLACEOSPDBPASSWORD@osp_db/osp
-      - OSP_CORE_SECRETKEY=REPLACEME_osp_flask_secret_REPLACEME
-      - OSP_CORE_PASSWORD_SALT=REPLACEME_osp_flask_salt_REPLACEME
+      - OSP_CORE_DB=mysql+pymysql://osp:D1g1tal00@osp_db/osp
+      - OSP_CORE_SECRETKEY=D1g1tal00
+      - OSP_CORE_PASSWORD_SALT=D1g1tal00
       - OSP_CORE_ALLOWREGISTRATION=True
       - OSP_CORE_REQUIREEMAILREGISTRATION=False
-      - OSP_EJABBERD_PASSWORD=changeme
+      - OSP_EJABBERD_PASSWORD=D1g1tal00
       - OSP_EJABBERD_RPCHOST=osp_ejabberd
-      - OSP_EJABBERD_BOSHDOMAIN=ejabberd.example.com
+      - OSP_EJABBERD_BOSHDOMAIN=ejabberd.deliteonline.com
       - OSP_SMTP_SENDAS=osp@email.com
       - OSP_SMTP_SERVERADDRESS=smtp.email.com
       - OSP_SMTP_SERVERPORT=25
@@ -213,8 +212,8 @@ services:
     volumes:
       - /srv/docker/osp-mariadb:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=REPLACEOSPROOTDBPASSWORD
-      - MYSQL_PASSWORD=REPLACEOSPDBPASSWORD
+      - MYSQL_ROOT_PASSWORD=D1g1tal00
+      - MYSQL_PASSWORD=D1g1tal00
       - MYSQL_DATABASE=osp
       - MYSQL_USER=osp
     networks:
