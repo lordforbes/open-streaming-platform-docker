@@ -17,10 +17,10 @@ services:
       - '5222:5222'
     environment:
       - EJABBERD_XMLRPC_ALLOWIP=0.0.0.0/0
-      - EJABBERD_PASSWORD=changeme
-      - EJABBERD_DOMAIN=osp.example.com
+      - EJABBERD_PASSWORD=D1g1tal00
+      - EJABBERD_DOMAIN=osp.deliteonline.com
       - OSP_API_PROTOCOL=http
-      - OSP_API_DOMAIN=osp.example.com
+      - OSP_API_DOMAIN=osp.deliteonline.com
     #labels:
     #  - "traefik.enable=true"
     #  - "traefik.http.routers.ejabberd.entrypoints=websecure"
@@ -29,10 +29,7 @@ services:
     #  - "traefik.http.routers.ejabberd.tls.certresolver=le"
     #  - "traefik.http.services.ejabberd.loadbalancer.server.port=5280"
     volumes:
-    - "/srv/docker/osp-app/data/ejabberd/database:/opt/ejabberd/database"
-    networks:
-      - osp
-      - web
+    - "/dockerdata/apps/osp/ejabberd/database:/opt/ejabberd/database"
 
   osp_core:
     build: ./osp-core
@@ -71,10 +68,10 @@ services:
       - OSP_RTMP_SERVER=osp_rtmp
       # - TZ=ETC/UTC
     volumes:
-      - "/srv/docker/osp-app/data/www:/var/www"
-      - "/srv/docker/osp-app/data/tmpfs/live:/var/www/live"
-      - "/srv/docker/osp-app/data/tmpfs/live-adapt:/var/www/live-adapt"
-      - "/srv/docker/osp-app/data/tmpfs/stream-thumb:/var/www/stream-thumb"
+      - "/dockerdata/apps/osp/data/www:/var/www"
+      - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
+      - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
+      - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
       - osp
       - web
@@ -111,10 +108,10 @@ services:
       - OSP_CORE_TYPE=celery
       # - TZ=ETC/UTC
     volumes:
-      - "/srv/docker/osp-app/data/www:/var/www"
-      - "/srv/docker/osp-app/data/tmpfs/live:/var/www/live"
-      - "/srv/docker/osp-app/data/tmpfs/live-adapt:/var/www/live-adapt"
-      - "/srv/docker/osp-app/data/tmpfs/stream-thumb:/var/www/stream-thumb"
+      - "/dockerdata/apps/osp/data/www:/var/www"
+      - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
+      - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
+      - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
       - osp
     depends_on:
@@ -151,10 +148,10 @@ services:
       - OSP_CORE_TYPE=beat
       # - TZ=ETC/UTC
     volumes:
-      - "/srv/docker/osp-app/data/www:/var/www"
-      - "/srv/docker/osp-app/data/tmpfs/live:/var/www/live"
-      - "/srv/docker/osp-app/data/tmpfs/live-adapt:/var/www/live-adapt"
-      - "/srv/docker/osp-app/data/tmpfs/stream-thumb:/var/www/stream-thumb"
+      - "/dockerdata/apps/osp/data/www:/var/www"
+      - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
+      - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
+      - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
       - osp
     depends_on:
@@ -175,10 +172,10 @@ services:
       - OSP_API_HOST=http://osp_core
       - OSP_RTMP_SECRETKEY=changeme
     volumes:
-      - "/srv/docker/osp-app/data/www:/var/www"
-      - "/srv/docker/osp-app/data/tmpfs/live:/var/www/live"
-      - "/srv/docker/osp-app/data/tmpfs/live-adapt:/var/www/live-adapt"
-      - "/srv/docker/osp-app/data/tmpfs/stream-thumb:/var/www/stream-thumb"
+      - "/dockerdata/apps/osp/data/www:/var/www"
+      - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
+      - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
+      - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
       - osp
     depends_on:
