@@ -1,9 +1,7 @@
 version: '3'
 
 networks:
-  osp:
-    external: false
-  web:
+  da-overlay:
     external: true
 
 services:
@@ -73,8 +71,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
-      - osp
-      - web
+      - da-overlay
     depends_on:
       - osp_db
       - osp_redis
@@ -113,7 +110,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
-      - osp
+      - da-overlay
     depends_on:
       - osp_db
       - osp_redis
@@ -153,7 +150,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
-      - osp
+      - da-overlay
     depends_on:
       - osp_db
       - osp_redis
@@ -177,7 +174,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
     networks:
-      - osp
+      - da-overlay
     depends_on:
       - osp_core
 
@@ -194,7 +191,7 @@ services:
       - MYSQL_DATABASE=osp
       - MYSQL_USER=osp
     networks:
-      - osp
+      - da-overlay
     healthcheck:
       test: "/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute \"SHOW DATABASES;\""
       interval: 1m
@@ -207,4 +204,4 @@ services:
     restart: unless-stopped
  
     networks:
-      - osp
+      - da-overlay
