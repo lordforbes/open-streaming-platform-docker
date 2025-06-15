@@ -1,9 +1,5 @@
 version: '3'
 
-networks:
-  da-overlay:
-    external: true
-
 services:
   osp_ejabberd:
     build: ./osp-ejabberd
@@ -70,8 +66,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
-    networks:
-      - da-overlay
+
     depends_on:
       - osp_db
       - osp_redis
@@ -109,8 +104,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
-    networks:
-      - da-overlay
+
     depends_on:
       - osp_db
       - osp_redis
@@ -149,8 +143,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
-    networks:
-      - da-overlay
+
     depends_on:
       - osp_db
       - osp_redis
@@ -173,8 +166,7 @@ services:
       - "/dockerdata/apps/osp/data/tmpfs/live:/var/www/live"
       - "/dockerdata/apps/osp/data/tmpfs/live-adapt:/var/www/live-adapt"
       - "/dockerdata/apps/osp/data/tmpfs/stream-thumb:/var/www/stream-thumb"
-    networks:
-      - da-overlay
+
     depends_on:
       - osp_core
 
@@ -190,8 +182,7 @@ services:
       - MYSQL_PASSWORD=D1g1tal00
       - MYSQL_DATABASE=osp
       - MYSQL_USER=osp
-    networks:
-      - da-overlay
+
     healthcheck:
       test: "/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute \"SHOW DATABASES;\""
       interval: 1m
@@ -203,5 +194,3 @@ services:
     image: redis
     restart: unless-stopped
  
-    networks:
-      - da-overlay
